@@ -1,15 +1,9 @@
 package com.group_finity.mascot.imagesetchooser;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.FilenameFilter;
-import java.io.Writer;
+import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultListSelectionModel;
 
 /**
  * Chooser used to select the Shimeji image sets in use.
@@ -18,7 +12,7 @@ import javax.swing.DefaultListSelectionModel;
 public class ImageSetChooser extends javax.swing.JDialog {
 
 	private final String configFile = "./ActiveShimeji";	// Config file name
-	private final String topDir = "./img";	// Top Level Directory
+	private final String topDir = "img";	// Top Level Directory
 	private ArrayList<String> imageSets = new ArrayList<String>();
 	private boolean closeProgram = true;	// Whether the program closes on dispose
 	private boolean selectAllSets = false;	// Default all to selected
@@ -54,17 +48,17 @@ public class ImageSetChooser extends javax.swing.JDialog {
 			String imageFile = topDir + "/" + imageSet + "/shime1.png";
 
 			// Determine actions file
-			String actionsFile = "./conf/actions.xml";
-			if (new File("./conf/" + imageSet + "/actions.xml").exists()) {
-				actionsFile = "./conf/" + imageSet + "/actions.xml";
+			String actionsFile = "conf/actions.xml";
+			if (new File("conf/" + imageSet + "/actions.xml").exists()) {
+				actionsFile = "conf/" + imageSet + "/actions.xml";
 			} else if (new File(topDir + "/" + imageSet + "/conf/actions.xml").exists()) {
 				actionsFile = topDir + "/" + imageSet + "/conf/actions.xml";
 			}
 
 			// Determine behaviors file
-			String behaviorsFile = "./conf/behaviors.xml";
-			if (new File("./conf/" + imageSet + "/behaviors.xml").exists()) {
-				behaviorsFile = "./conf/" + imageSet + "/behaviors.xml";
+			String behaviorsFile = "conf/behaviors.xml";
+			if (new File("conf/" + imageSet + "/behaviors.xml").exists()) {
+				behaviorsFile = "conf/" + imageSet + "/behaviors.xml";
 			} else if (new File(topDir + "/" + imageSet + "/conf/behaviors.xml").exists()) {
 				behaviorsFile = topDir + "/" + imageSet + "/conf/behaviors.xml";
 			}
