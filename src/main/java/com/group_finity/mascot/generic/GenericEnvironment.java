@@ -1,9 +1,9 @@
 package com.group_finity.mascot.generic;
 
-import java.awt.Point;
-
 import com.group_finity.mascot.environment.Area;
 import com.group_finity.mascot.environment.Environment;
+
+import java.awt.*;
 
 /**
  * Java Environmental information is difficult to get used to get in the JNI.
@@ -18,6 +18,7 @@ class GenericEnvironment extends Environment {
 	@Override
 	public void tick() {
 		super.tick();
+		activeIE = new Area();
 		this.activeIE.setVisible(false);
 	}
 
