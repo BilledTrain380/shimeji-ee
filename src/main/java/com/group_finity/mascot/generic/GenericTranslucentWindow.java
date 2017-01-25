@@ -1,15 +1,12 @@
 package com.group_finity.mascot.generic;
 
-import java.awt.Component;
-import java.awt.Graphics;
-
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JWindow;
-
 import com.group_finity.mascot.image.NativeImage;
 import com.group_finity.mascot.image.TranslucentWindow;
-import com.sun.jna.examples.WindowUtils;
+import com.sun.jna.platform.WindowUtils;
+
+import javax.swing.*;
+import java.awt.*;
+
 
 /**
  * Original Author: Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/)

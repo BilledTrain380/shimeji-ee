@@ -1,10 +1,10 @@
 package com.group_finity.mascot.imagesetchooser;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  * Displays information about an image set.  Used by ImageSetChooser
@@ -55,22 +55,22 @@ public class ImageSetChooserPanel extends javax.swing.JPanel {
     setBorder(javax.swing.BorderFactory.createEtchedBorder());
     setMinimumSize(new java.awt.Dimension(248, 80));
     setPreferredSize(new java.awt.Dimension(248, 80));
-    setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+    //setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
     checkbox.setOpaque(false);
-    add(checkbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+    add(checkbox);
 
     name.setText("Builder");
-    add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+    add(name);
 
     actionsFile.setText("img/Builder/conf/actionsxml");
-    add(actionsFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
+    add(actionsFile);
 
     behaviorsFile.setText("img/Builder/conf/behaviors.xml");
-    add(behaviorsFile, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+    add(behaviorsFile);
 
     image.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-    add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 60, 60));
+    add(image);
   }// </editor-fold>//GEN-END:initComponents
 
 

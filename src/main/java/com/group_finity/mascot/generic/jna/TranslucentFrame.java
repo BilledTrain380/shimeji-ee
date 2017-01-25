@@ -1,10 +1,10 @@
 package com.group_finity.mascot.generic.jna;
-import java.awt.Component;
 
-import javax.swing.JComponent;
-import javax.swing.JWindow;
+import com.sun.jna.platform.WindowUtils;
 
-import com.sun.jna.examples.WindowUtils;
+import javax.swing.*;
+import java.awt.*;
+
 
 /**
  * Original Author: Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/)

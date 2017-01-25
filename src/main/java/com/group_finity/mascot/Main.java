@@ -1,11 +1,19 @@
 package com.group_finity.mascot;
 
-import java.awt.AWTException;
-import java.awt.MenuItem;
-import java.awt.Point;
-import java.awt.PopupMenu;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
+import com.group_finity.mascot.config.Configuration;
+import com.group_finity.mascot.config.Entry;
+import com.group_finity.mascot.exception.BehaviorInstantiationException;
+import com.group_finity.mascot.exception.CantBeAliveException;
+import com.group_finity.mascot.exception.ConfigurationException;
+import com.group_finity.mascot.imagesetchooser.ImageSetChooser;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -18,23 +26,6 @@ import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
-
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import com.group_finity.mascot.config.Configuration;
-import com.group_finity.mascot.config.Entry;
-import com.group_finity.mascot.exception.BehaviorInstantiationException;
-import com.group_finity.mascot.exception.CantBeAliveException;
-import com.group_finity.mascot.exception.ConfigurationException;
-import com.group_finity.mascot.imagesetchooser.ImageSetChooser;
 
 /**
  * Program entry point.
@@ -51,7 +42,7 @@ public class Main {
 
 	static {
 		try {
-			LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
+			LogManager.getLogManager().readConfiguration(Main.class.getClassLoader().getResourceAsStream("conf/logging.properties"));
 		} catch (final SecurityException e) {
 			e.printStackTrace();
 		} catch (final IOException e) {
