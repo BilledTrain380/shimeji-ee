@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/shimeji-ee.iml" filepath="$PROJECT_DIR$/.idea/shimeji-ee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shimeji-ee.iml" filepath="$PROJECT_DIR$/.idea/modules/shimeji-ee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shimeji-ee_main.iml" filepath="$PROJECT_DIR$/.idea/modules/shimeji-ee_main.iml" group="shimeji-ee" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shimeji-ee_test.iml" filepath="$PROJECT_DIR$/.idea/modules/shimeji-ee_test.iml" group="shimeji-ee" />
     </modules>
   </component>
 </project>
