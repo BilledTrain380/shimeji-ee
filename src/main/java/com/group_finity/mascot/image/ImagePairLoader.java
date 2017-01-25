@@ -1,10 +1,10 @@
 package com.group_finity.mascot.image;
 
-import java.awt.Point;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Original Author: Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/)
@@ -18,7 +18,7 @@ public class ImagePairLoader {
 	public static void load(final String name, final Point center) throws IOException {
 			if( ImagePairs.contains(name) ) return;
 
-			final BufferedImage leftImage = ImageIO.read(ImagePairLoader.class.getResource(name));
+			final BufferedImage leftImage = ImageIO.read(new File(name));
 			final BufferedImage rightImage = flip(leftImage);
 			ImagePair ip = new ImagePair(new MascotImage(leftImage, center), 
 					new MascotImage(rightImage, new Point(rightImage.getWidth() - center.x, center.y)));
