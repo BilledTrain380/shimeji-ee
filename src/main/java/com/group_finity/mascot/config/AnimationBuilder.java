@@ -1,18 +1,18 @@
 package com.group_finity.mascot.config;
 
-import java.awt.Point;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import com.group_finity.mascot.animation.Animation;
 import com.group_finity.mascot.animation.Pose;
 import com.group_finity.mascot.exception.AnimationInstantiationException;
 import com.group_finity.mascot.exception.VariableException;
 import com.group_finity.mascot.image.ImagePairLoader;
 import com.group_finity.mascot.script.Variable;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Original Author: Yuki Yamada of Group Finity (http://www.group-finity.com/Shimeji/)
@@ -46,7 +46,7 @@ public class AnimationBuilder {
 
 	private Pose loadPose(final Entry frameNode) throws IOException {
 
-		final String imageText = imageSet+frameNode.getAttribute("Image");
+		final String imageText = "img/" + imageSet+frameNode.getAttribute("Image");
 		final String anchorText = frameNode.getAttribute("ImageAnchor");
 		final String moveText = frameNode.getAttribute("Velocity");
 		final String durationText = frameNode.getAttribute("Duration");

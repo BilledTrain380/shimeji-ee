@@ -42,7 +42,7 @@ public class Main {
 
 	static {
 		try {
-			LogManager.getLogManager().readConfiguration(Main.class.getClassLoader().getResourceAsStream("conf/logging.properties"));
+			LogManager.getLogManager().readConfiguration(Main.class.getClassLoader().getResourceAsStream("logging.properties"));
 		} catch (final SecurityException e) {
 			e.printStackTrace();
 		} catch (final IOException e) {
@@ -95,7 +95,7 @@ public class Main {
 		}
 		
 		// Create the tray icon
-		createTrayIcon();
+		//createTrayIcon();
 
 		// Create the first mascot
 		for( String imageSet : imageSets ) {
@@ -108,11 +108,11 @@ public class Main {
 	private void loadConfiguration( final String imageSet ) {
 
 		try {
-			String actionsFile = "./conf/actions.xml";		
-			if( new File("./conf/"+imageSet+"/actions.xml").exists() ) {	
-				actionsFile = "./conf/"+imageSet+"/actions.xml";				
-			} else if( new File("./img/"+imageSet+"/conf/actions.xml").exists() ) {
-				actionsFile = "./img/"+imageSet+"/conf/actions.xml";
+			String actionsFile = "conf/actions.xml";		
+			if( new File("conf/" +imageSet+"/actions.xml").exists() ) {	
+				actionsFile = "conf/" +imageSet+"/actions.xml";				
+			} else if( new File("img/" +imageSet+ "/conf/actions.xml").exists() ) {
+				actionsFile = "img/" +imageSet+ "/conf/actions.xml";
 			}				
 			
 			log.log(Level.INFO, imageSet+" Read Action File ({0})", actionsFile);
@@ -124,11 +124,11 @@ public class Main {
 
 			configuration.load(new Entry(actions.getDocumentElement()),imageSet);
 
-			String behaviorsFile = "./conf/behaviors.xml";			
-			if( new File("./conf/"+imageSet+"/behaviors.xml").exists() ) {	
-				behaviorsFile = "./conf/"+imageSet+"/behaviors.xml";				
-			} else if( new File("./img/"+imageSet+"/conf/behaviors.xml").exists() ) {
-				behaviorsFile = "./img/"+imageSet+"/conf/behaviors.xml";
+			String behaviorsFile = "conf/behaviors.xml";			
+			if( new File("conf/" +imageSet+"/behaviors.xml").exists() ) {	
+				behaviorsFile = "conf/" +imageSet+"/behaviors.xml";				
+			} else if( new File("img/" +imageSet+ "/conf/behaviors.xml").exists() ) {
+				behaviorsFile = "img/" +imageSet+ "/conf/behaviors.xml";
 			}
 			
 			log.log(Level.INFO, imageSet+" Read Behavior File ({0})", behaviorsFile);			
