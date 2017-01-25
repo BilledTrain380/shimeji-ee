@@ -14,11 +14,11 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = ""
+mainClassName = "com.group_finity.mascot.Main"
 
 jar {
     manifest {
-        attributes "Main-Class" : ""
+        attributes "Main-Class" : "com.group_finity.mascot.Main"
     }
     baseName = 'shimeji-ee'
     version = "${shimejiVersion}"
@@ -32,6 +32,7 @@ dependencies {
 
     compile group: 'net.java.dev.jna', name: 'jna', version: '4.3.0'
     compile group: 'net.java.dev.jna', name: 'jna-platform', version: '4.3.0'
+    //compile group: 'org.netbeans.external', name: 'AbsoluteLayout', version: 'RELEASE802'
     
     testCompile 'junit:junit:4.12'
     
