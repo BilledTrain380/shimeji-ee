@@ -94,7 +94,7 @@ public class Main {
 		}
 		
 		// Create the tray icon
-		//createTrayIcon();
+		createTrayIcon();
 
 		// Create the first mascot
 		for( String imageSet : imageSets ) {
@@ -227,7 +227,7 @@ public class Main {
 
 		try {
 			// Create the tray icon
-			final TrayIcon icon = new TrayIcon(ImageIO.read(Main.class.getResource("/icon.png")), "shimeji-ee", trayPopup);
+			final TrayIcon icon = new TrayIcon(ImageIO.read(Main.class.getClassLoader().getResource("img/icon.png")), "shimeji-ee", trayPopup);
 			icon.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(final MouseEvent e) {
