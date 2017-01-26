@@ -19,7 +19,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -118,7 +117,8 @@ public class Main {
 			log.log(Level.INFO, imageSet+" Read Action File ({0})", actionsFile);
 			
 			final Document actions = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
-					new FileInputStream( new File(actionsFile)));
+					Main.class.getClassLoader().getResourceAsStream(actionsFile)
+			);
 
 			Configuration configuration = new Configuration();
 
@@ -134,7 +134,8 @@ public class Main {
 			log.log(Level.INFO, imageSet+" Read Behavior File ({0})", behaviorsFile);			
 			
 			final Document behaviors = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
-					new FileInputStream( new File(behaviorsFile) ) );
+					Main.class.getClassLoader().getResourceAsStream(behaviorsFile)
+			);
 
 			configuration.load(new Entry(behaviors.getDocumentElement()),imageSet);
 
