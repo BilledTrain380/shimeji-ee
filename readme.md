@@ -20,8 +20,7 @@ to English, but adds additional enhancements to Shimeji.
 6. How to Quit
 7. How to Uninstall
 8. Source
-9. Library
-10. Trouble Shooting
+9. Trouble Shooting
 
 ### Homepage (with wiki)
 
