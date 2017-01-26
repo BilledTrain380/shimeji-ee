@@ -36,13 +36,10 @@ Homepage: http://code.google.com/p/shimeji-ee/
 
 #### General OS
 
-> At the moment, Shimeji-ee can only be started via command line.
+> You need the `img` directory with your shimejis relative to the jar file. <br>
+> Create also a `log` directory relative to the jar file.
 
-Run Command:
-
-```bash
-java -jar shimeji-ee-1.0.5.jar
-```
+1. Double click shimeji-ee-1.0.5.jar
 
 If you don't have a jar file, you have to build Shimeji-ee first.
 See the Getting Started section for further information.
@@ -79,14 +76,14 @@ If you don't have gradle installed, you can use the gradle wrapper to build Shim
 ./gradlew build
 ```
 
-> You must have an `img` and a log directory relative to your jar file, if you want to move
+> You must have an `img` and a `log` directory relative to your jar file, if you want to move
 > the application to another directory without the source code.
 >
 > Example folder structure
 >
 > /your-folder <br>
 > /your-folder/shimeji-ee-1.0.5.jar <br>
-> /your-folder/log
+> /your-folder/log <br>
 > /your-folder/img
 
 #### Basic Configuration
