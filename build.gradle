@@ -4,15 +4,44 @@
 
 buildscript {
     ext {
-        shimejiVersion = "shimeji-ee"
+        shimejiVersion = "1.0.5"
     }
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath("com.github.cr0:gradle-macappbundle-plugin:3.1.0")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: "com.github.cr0.macappbundle"
+
+// config for creating a .app
+macAppBundle {
+    appName = "shimeji-ee"
+    appCategory = "public.app-category.utilities"
+    icon = "img/icon.icns"
+    agent = true
+
+    version = "${shimejiVersion}"
+    shortVersion = "${shimejiVersion}b"
+
+    mainClassName = "com.group_finity.mascot.Main"
+
+    bundleJRE = false
+    bundleExecutable = "Shimeji-ee"
+    bundleIdentifier = "com.group_finity.mascot"
+    bundleCopyright = "Copyright (C) 2017 shimeji-ee"
+
+    volumeName = "Shimeji-ee ${shimejiVersion}"
+
+    archiveName = "Shimeji-ee ${shimejiVersion}"
+}
 
 mainClassName = "com.group_finity.mascot.Main"
 
@@ -32,7 +61,6 @@ dependencies {
 
     compile group: 'net.java.dev.jna', name: 'jna', version: '4.3.0'
     compile group: 'net.java.dev.jna', name: 'jna-platform', version: '4.3.0'
-    //compile group: 'org.netbeans.external', name: 'AbsoluteLayout', version: 'RELEASE802'
     
     testCompile 'junit:junit:4.12'
     
