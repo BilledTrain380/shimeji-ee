@@ -34,6 +34,19 @@ Homepage: http://code.google.com/p/shimeji-ee/
 
 ### How to Start
 
+#### General OS
+
+> At the moment, Shimeji-ee can only be started via command line.
+
+Run Command:
+
+```bash
+java -jar shimeji-ee-1.0.5.jar
+```
+
+If you don't have a jar file, you have to build Shimeji-ee first.
+See the Getting Started section for further information.
+
 #### Windows
 
 > Shimeji-ee.exe is not migrated to the newer technology yet.
@@ -49,6 +62,32 @@ Left click the tray icon to create another Shimeji.
 Double Click Shimeji-ee.app
 Right click the tray icon or the individual Shimeji for options. 
 Left click the tray icon to create another Shimeji.
+
+### Getting Started
+
+Shimeji-ee-1.0.5 is migrated to gradle. To build Shimeji-ee simply run a command.
+
+```bash
+gradle build
+```
+
+The jar file will be generated in `build/libs`.
+
+If you don't have gradle installed, you can use the gradle wrapper to build Shimeji-ee.
+
+```bash
+./gradlew build
+```
+
+> You must have an `img` and a log directory relative to your jar file, if you want to move
+> the application to another directory without the source code.
+>
+> Example folder structure
+>
+> /your-folder <br>
+> /your-folder/shimeji-ee-1.0.5.jar <br>
+> /your-folder/log
+> /your-folder/img
 
 #### Basic Configuration
 
