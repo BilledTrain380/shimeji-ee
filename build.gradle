@@ -51,6 +51,9 @@ jar {
     }
     baseName = 'shimeji-ee'
     version = "${shimejiVersion}"
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 repositories {
