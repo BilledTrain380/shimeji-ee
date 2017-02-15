@@ -5,9 +5,11 @@ import com.group_finity.mascot.dto.PreviewMascot;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.rules.ExpectedException;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class IOMascotProviderTest {
     
     @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    public ExpectedException thrown = ExpectedException.none();
     
     private IOMascotProvider provider;
     
@@ -58,6 +60,14 @@ public class IOMascotProviderTest {
         Set<PreviewMascot> mascots = provider.getAvailableMascots(searchFile.toPath());
         
         assertEquals(expected, mascots);
+    }
+    
+    @Test
+    public void getAvailableMascotsWhenIOException() throws Exception {
+        
+        thrown.expect(IOException.class);
+        
+        provider.getAvailableMascots(Paths.get("does not exists"));
     }
 
     @Test
