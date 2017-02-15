@@ -1,6 +1,6 @@
 package com.group_finity.mascot.dto;
 
-import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * Extended DTO class to hold information for a mascot.
@@ -10,13 +10,13 @@ import java.awt.image.BufferedImage;
  */
 public class PreviewMascot extends BasicMascot {
     
-    private BufferedImage image;
+    private File image;
 
-    public BufferedImage getImage() {
+    public File getImage() {
         return image;
     }
 
-    public void setImage(BufferedImage image) {
+    public void setImage(File image) {
         this.image = image;
     }
 
@@ -33,9 +33,9 @@ public class PreviewMascot extends BasicMascot {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        PreviewMascot that = (PreviewMascot) o;
+        PreviewMascot mascot = (PreviewMascot) o;
 
-        return image != null ? image.equals(that.image) : that.image == null;
+        return image != null ? image.equals(mascot.image) : mascot.image == null;
     }
 
     @Override

@@ -7,7 +7,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +34,8 @@ public class IOMascotProviderTest {
         
         PreviewMascot previewShimeji = new PreviewMascot();
         previewShimeji.setName("Shimeji");
-        previewShimeji.setImage(ImageIO.read(getClass().getClassLoader().getResourceAsStream("Shimeji/shime1.png")));
+        File shimejiImg = new File(getClass().getClassLoader().getResource("shimeji/Shimeji/shime1.png").getFile());
+        previewShimeji.setImage(shimejiImg);
 
         MascotConfiguration config = new MascotConfiguration();
         config.setActionFile(new File(getClass().getClassLoader().getResource("conf/actions.xml").getFile()));
@@ -45,18 +45,19 @@ public class IOMascotProviderTest {
         
         PreviewMascot previewKuroShimeji = new PreviewMascot();
         previewKuroShimeji.setName("KuroShimeji");
-        previewKuroShimeji.setImage(ImageIO.read(getClass().getClassLoader().getResourceAsStream("KuroShimeji/shime1.png")));
+        File kuroShimejiImg = new File(getClass().getClassLoader().getResource("shimeji/KuroShimeji/shime1.png").getFile());
+        previewKuroShimeji.setImage(kuroShimejiImg);
         previewKuroShimeji.setConfig(config);
         
-        Set<PreviewMascot> expeted = new HashSet<>();
-        expeted.add(previewShimeji);
-        expeted.add(previewKuroShimeji);
+        Set<PreviewMascot> expected = new HashSet<>();
+        expected.add(previewShimeji);
+        expected.add(previewKuroShimeji);
         
-        File searchFile = new File(getClass().getClassLoader().getResource("./").getFile());
+        File searchFile = new File(getClass().getClassLoader().getResource("shimeji/").getFile());
         
         Set<PreviewMascot> mascots = provider.getAvailableMascots(searchFile.toPath());
         
-        assertEquals(expeted, mascots);
+        assertEquals(expected, mascots);
     }
 
     @Test
